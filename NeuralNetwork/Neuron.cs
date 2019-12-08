@@ -28,7 +28,15 @@ namespace NeuralNetwork
             var rand = new Random();
             for (int i = 0; i < inputCount; i++)
             {
-                Weights.Add(rand.NextDouble());
+                if(NeuronType == NeuronType.Input)
+                {
+                   Weights.Add(1);
+                }
+                else
+                {
+                   Weights.Add(rand.NextDouble());
+                }
+
                 Inputs.Add(0);
 
             }

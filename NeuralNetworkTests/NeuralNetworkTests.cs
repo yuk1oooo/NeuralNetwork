@@ -42,7 +42,7 @@ namespace NeuralNetwork.Tests
 
             };
 
-            var topology = new Topology(4, 1, 2);
+            var topology = new Topology(4, 1, 0.1, 2);
             var neuralNetwork = new NeuralNetwork(topology);
             var difference = neuralNetwork.Learn(dataset, 1000);
 
