@@ -35,6 +35,20 @@ namespace NeuralNetwork
 
         }
 
+        public double Learn(List<Tuple<double, double[]>> dataset, int era)
+        {
+            var error = 0.0;
+            
+            for (int i = 0; i < era; i++)
+            {
+                foreach(var data in dataset)
+                {
+                    error += Backpropagation(data.Item1, data.Item2);
+                }
+            }
+            var result = error / era;
+            return result;
+        }
         private double Backpropagation(double expected, params double[] inputs)
         {
             var actual = FeedForward(inputs).Output;
